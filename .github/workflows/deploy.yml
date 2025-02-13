@@ -40,10 +40,13 @@ jobs:
             "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
           }'
     # 5. 构建并推送 Docker 镜像到 ACR
+    - name: List files
+      run: ls -R
+
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v5
       with:
-        context: .
+        context: ./k8s
         push: true
         tags: |
           mycontainerregistry.azurecr.io/java-app:${{ github.sha }}
