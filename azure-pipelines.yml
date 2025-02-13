@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: 'b13f80f7-42e4-476e-a2c4-60b4422342c9'
   imageRepository: 'zhaoyanhongpublishjavatest'
   containerRegistry: 'testappconfig.azurecr.io'
-  dockerfilePath: 'publishJavaTest/Dockerfile.dockerfile'
+  dockerfilePath: '.github\workflows\Dockerfile.Dockerfile'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
