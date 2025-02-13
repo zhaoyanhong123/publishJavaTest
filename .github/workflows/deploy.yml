@@ -46,7 +46,7 @@ jobs:
         context: .
         push: true
         tags: |
-          mycontainerregistry.azurecr.io/java-app:3WR3FLGLSE9U3h+hR9rATeYBdsm0C5yVLS3jxeMfRto
+          mycontainerregistry.azurecr.io/java-app:${{ github.sha }}
           mycontainerregistry.azurecr.io/java-app:latest
 
     # 6. 获取 AKS 集群凭据
@@ -66,4 +66,4 @@ jobs:
           k8s/deployment.yaml
           k8s/service.yaml
         images: |
-          mycontainerregistry.azurecr.io/java-app:SHA256:3WR3FLGLSE9U3h+hR9rATeYBdsm0C5yVLS3jxeMfRto
+          mycontainerregistry.azurecr.io/java-app:${{ github.sha }}
