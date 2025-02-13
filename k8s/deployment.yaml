@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: java-app
-          image: mycontainerregistry.azurecr.io/my-java-app:latest  # 将被 GitHub Actions 替换
+          image: mytestjavacontainerregistry.azurecr.io/my-java-app:latest  # 将被 GitHub Actions 替换
           ports:
             - containerPort: 8080

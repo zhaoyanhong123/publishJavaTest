@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]  # 触发条件：推送到 main 分支
 
 env:
-  ACR_NAME: mycontainerregistry  # ACR 名称
+  ACR_NAME: mytestjavacontainerregistry  # ACR 名称
   RESOURCE_GROUP: appServiceGroup  # 资源组名称
   AKS_CLUSTER: appServiceGroup  # AKS 集群名称
   IMAGE_NAME: my-java-app  # Docker 镜像名称
@@ -46,8 +46,8 @@ jobs:
         context: .
         push: true
         tags: |
-          mycontainerregistry.azurecr.io/java-app:${{ github.sha }}
-          mycontainerregistry.azurecr.io/java-app:latest
+          mytestjavacontainerregistry.azurecr.io/java-app:${{ github.sha }}
+          mytestjavacontainerregistry.azurecr.io/java-app:latest
 
     # 6. 获取 AKS 集群凭据
     - name: Get AKS credentials
@@ -66,4 +66,4 @@ jobs:
           k8s/deployment.yaml
           k8s/service.yaml
         images: |
-          mycontainerregistry.azurecr.io/java-app:${{ github.sha }}
+          mytestjavacontainerregistry.azurecr.io/java-app:${{ github.sha }}
