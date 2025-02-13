@@ -34,11 +34,12 @@ jobs:
       uses: azure/login@v1
       with:
         creds: '{
-            "clientId": "${{ secrets.AZURE_CLIENT_ID }}",
-            "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}",
-            "tenantId": "${{ secrets.AZURE_TENANT_ID }}",
-            "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
-          }'
+          "clientId": "${{ secrets.AZURE_CLIENT_ID }}",
+          "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}",
+          "tenantId": "${{ secrets.AZURE_TENANT_ID }}",
+          "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+        }'
+        auth-type: serviceprincipal
     # 5. 构建并推送 Docker 镜像到 ACR
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v5
